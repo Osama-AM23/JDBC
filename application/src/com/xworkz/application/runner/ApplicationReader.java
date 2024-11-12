@@ -13,6 +13,7 @@ public class ApplicationReader {
 		String url = "jdbc:mysql://localhost:3306/pg";
 		String userName = "root";
 		String password = "Xworkzodc@123";
+		String query=   "SELECT * FROM application";
 		String query1 = "SELECT name FROM application WHERE email = 'aswin23@gmail.com' AND mobileNo = 8122407324";
 		String query2 = "SELECT address FROM application WHERE name = 'Mujahid' AND mobileNo = 6381500876";
 		String query3 = "SELECT email FROM application where id=10 AND mobileNo=9609255412";
@@ -28,6 +29,13 @@ public class ApplicationReader {
 			
 			while(resultSet1.next()) {
 				System.out.println(resultSet1.getString("name"));
+			}
+			
+			Statement statement=connection.createStatement();
+			ResultSet resultSet= statement.executeQuery(query);
+			
+			while(resultSet.next()) {
+				System.out.println(resultSet.getString("name"));
 			}
 
 			Statement statement2= connection.createStatement();
