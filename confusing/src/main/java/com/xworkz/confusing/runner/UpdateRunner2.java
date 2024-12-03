@@ -1,6 +1,6 @@
 package com.xworkz.confusing.runner;
 
-import java.util.Iterator;
+
 import java.util.List;
 
 import javax.persistence.EntityManager;
@@ -18,11 +18,11 @@ public class UpdateRunner2 {
 		EntityManager eManager = emFactory.createEntityManager();
 		EntityTransaction eTrans = eManager.getTransaction();
 		
-		List<ConfusingDto> list = eManager.createQuery("select cd.name, cd.phoneNo from ConfusingDto cd where cd.age >15", ConfusingDto.class)
+		List<ConfusingDto> list = eManager.createQuery("Select cd from ConfusingDto cd where cd.age>21 ", ConfusingDto.class)
 				.getResultList();
 		
 		for(ConfusingDto dto: list) {
-			System.out.println("ConfusingDto = "+ dto.getName() + ", "+ dto.getAge());
+			System.out.println("ConfusingDto values  = "+ dto.getName() + ", "+ dto.getEmail());
 		}
 		
 		try {
