@@ -23,6 +23,13 @@ import javax.persistence.Table;
 
 @NamedQuery(name = "getSingleRow", query = "Select fe From FitnessEntity fe where fe.id= :id")
 
+@NamedQuery(name= "getUserIdByWorkoutDate", query= "Select fe.userId from FitnessEntity fe where fe.workoutDate= :byWorkoutDate")
+@NamedQuery(name= "getIdByCaloriesBurned", query= "Select fe.id from FitnessEntity fe where fe.caloriesBurned= :byCalo")
+@NamedQuery(name= "getDistanceBySteps", query= "Select fe.distance from FitnessEntity fe where fe.steps= :bySteps")
+@NamedQuery(name= "getCompleteByUserId", query= "Select fe.isCompleted from FitnessEntity fe where fe.userId= :byUserId")
+@NamedQuery(name= "getWorkoutTypeById", query= "Select fe.workoutType from FitnessEntity fe where fe.id= :byId")
+
+
 @NamedQuery(name = "getAllByUserIdAndSteps", query = "Select fe From FitnessEntity fe where fe.userId= :user and fe.steps= :stp")
 
 @NamedQuery(name = "update", query = "update FitnessEntity fe Set fe.duration= :duration Where fe.id= :id And fe.caloriesBurned= :calo")
